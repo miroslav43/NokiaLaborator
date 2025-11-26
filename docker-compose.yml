@@ -1,44 +1,13 @@
-version: "3.8"
-
-services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - app-network
-
-  backend:
-    build: ./backend
-    ports:
-      - "8000:8000"
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-todo_db}
-      - POSTGRES_HOST=db
-      - POSTGRES_PORT=5432
-    depends_on:
-      - db
-    networks:
-      - app-network
-
-  db:
-    build: ./db
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-todo_db}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
-
-volumes:
-  postgres_data:
+# TODO: Docker Compose pentru aplicatia Todo
+#
+# Aplicatia are 3 componente:
+#   - Frontend (React) pe portul 3000
+#   - Backend (FastAPI) pe portul 8000
+#   - Database (PostgreSQL)
+#
+# Cerinte:
+#   1. Configureaza cele 3 servicii sa comunice intre ele
+#   2. Backend-ul are nevoie de credentiale pentru baza de date
+#   3. Datele din PostgreSQL trebuie sa persiste dupa restart
+#
+# Hint: Verifica fisierele din fiecare folder pentru a intelege structura
