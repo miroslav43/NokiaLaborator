@@ -1,0 +1,34 @@
+# Solutii (nu pentru studenti)
+*.solution
+Dockerfile.solution
+
+# Kubernetes (optional/avansat)
+k8s/
+
+# Materiale curs
+Curs/
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# Docker volumes
+postgres_data/
+
+# OS
+.DS_Store
+Thumbs.db
